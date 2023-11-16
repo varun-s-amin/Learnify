@@ -56,11 +56,6 @@
 
 
   <!-- Start login page-->
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Login">
-    Launch demo modal
-  </button>
-
   <!-- Modal -->
   <div class="modal fade" id="Login" tabindex="-1" aria-labelledby="LoginLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -98,17 +93,12 @@
 
 
   <!-- Start admin login page-->
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adminLogin">
-    Launch demo modal
-  </button>
-
   <!-- Modal -->
   <div class="modal fade" id="adminLogin" tabindex="-1" aria-labelledby="adminLoginLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="adminLoginLabel">Student Registration</h5>
+          <h5 class="modal-title" id="adminLoginLabel">Admin Registration</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

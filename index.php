@@ -25,16 +25,16 @@
   <div class="container-fluid bg-danger txt-banner">
     <div class="row bottom-banner">
       <div class="col-sm">
-        <h5><i class="fas fa-book-open mr-3"></i>100+ Online Courses</h5>
+        <h5><i class="fas fa-book-open mr-3"></i>&nbsp;100+ Online Courses</h5>
       </div>
       <div class="col-sm">
-        <h5><i class="fas fa-person-chalkboard"></i>Expert Instructors</h5>
+        <h5><i class="fas fa-person-chalkboard">&nbsp;</i>Expert Instructors</h5>
       </div>
       <div class="col-sm">
-        <h5><i class="fas fa-keyboard mr-3"></i>Lifetime Access</h5>
+        <h5><i class="fas fa-keyboard mr-3"></i>&nbsp;Lifetime Access</h5>
       </div>
       <div class="col-sm">
-        <h5><i class="fas fa-indian-rupee-sign"></i>Money back Guarantee</h5>
+        <h5><i class="fas fa-indian-rupee-sign"></i>&nbsp;Money back Guarantee</h5>
       </div>
     </div>
   </div>
@@ -162,21 +162,23 @@
   <!-- End student's feedback -->
 
   <!-- Social media icons -->
-  <div class="row text-white text-center p-1">
-    <div class="col-sm">
-      <a class="text-white social-hover" href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+  <div class="container-fluid text-white text-center p-1" style="background-color: blue;">
+    <div class="row">
+        <div class="col-6 col-sm">
+            <a class="text-white social-hover" href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+        </div>
+        <div class="col-6 col-sm">
+            <a class="text-white social-hover" href="#"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+        <div class="col-6 col-sm">
+            <a class="text-white social-hover" href="#"><i class="fab fa-whatsapp"></i> Whatsapp</a>
+        </div>
+        <div class="col-6 col-sm">
+            <a class="text-white social-hover" href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
     </div>
-    <div class="col-sm">
-      <a class="text-white social-hover" href="#"><i class="fab fa-twitter"></i> Twitter</a>
-    </div>
-    <div class="col-sm">
-      <a class="text-white social-hover" href="#"><i class="fab fa-whatsapp"></i> Whatsapp</a>
-    </div>
-    <div class="col-sm">
-      <a class="text-white social-hover" href="#"><i class="fab fa-instagram"></i> Instagram</a>
-    </div>
-  </div>
-  <!-- End social media icons -->
+</div>
+<!-- End social media icons -->
 
 
   <!-- footer starts -->
