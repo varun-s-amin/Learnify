@@ -83,7 +83,8 @@
           <!-- end Login page-->
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Sign in</button>
+          <small id="statusLogMsg"></small>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="checkStudentLogin()">Sign in</button>
           <button type="button" class="btn btn-primary">Cancel</button>
         </div>
       </div>

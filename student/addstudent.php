@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)){ 
+    session_start(); 
+}
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
@@ -46,5 +49,25 @@ if (isset($_POST['student_Signup']) && isset($_POST['student_Name']) && isset($_
     }
 
     $stmt->close();
+}
+
+
+// Student Login Verification
+if(!isset($_SESSION['is_login'])){
+    if(isset($_POST['checkLogemail']) && isset($_POST['SI_Email']) && isset($_POST['SI_Password'])){
+      $stuLogEmail = $_POST['SI_Email'];
+      $stuLogPass = $_POST['SI_Password'];
+      $sql = "SELECT stu_email, stu_pass FROM student WHERE stu_email='".$SI_Email."' AND stu_pass='".$SI_Password."'";
+      $result = $conn->query($sql);
+      $row = $result->num_rows;
+      
+      if($row === 1){
+        $_SESSION['is_login'] = true;
+        $_SESSION['SI_Email'] = $SI_Email;
+        echo json_encode($row);
+      } else if($row === 0) {
+        echo json_encode($row);
+      }
+    }
 }
 ?>

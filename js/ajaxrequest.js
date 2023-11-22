@@ -106,6 +106,40 @@ function addStudent() {
     }
 }
 
+
+// Ajax Call for Student Login Verification
+function checkStudentLogin() {
+    var Admin_Email = $("#Admin_Email").val();
+    var Admin_Password = $("#Admin_Password").val();
+    $.ajax({
+      url: "Student/addstudent.php",
+      type: "post",
+      data: {
+        checkLogemail: "checklogmail",
+        Admin_Email: Admin_Email,
+        Admin_Password: Admin_Password
+      },
+      success: function(data) {
+        console.log(data);
+        if (data == 0) {
+          $("#statusLogMsg").html(
+            '<small class="alert alert-danger"> Invalid Email ID or Password ! </small>'
+          );
+        } else if (data == 1) {
+          $("#statusLogMsg").html(
+            '<div class="spinner-border text-success" role="status"></div>'
+          );
+          // Empty Login Fields
+          clearStuLoginField();
+          setTimeout(() => {
+            window.location.href = "index.php";
+          }, 1000);
+        }
+      }
+    });
+}
+
+
 // Empty all fields and status message also
 function clearStudentField() { // Corrected function name
     $("#Student_SU").trigger("reset");

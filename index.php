@@ -16,6 +16,13 @@
       <h1 class="my-content">Welcome to Meschool</h1>
       <small class="my-content">Learn and Implement</small><br>
       <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#Register">Get Started</a>
+      <?php    
+              if(!isset($_SESSION['is_login'])){
+                echo '<a class="btn btn-danger mt-3" href="#Register" data-toggle="modal" data-target="#stuRegModalCenter">Get Started</a>';
+              } else {
+                echo '<a class="btn btn-primary mt-3" href="#">My Profile</a>';
+              }
+          ?>
     </div>
   </div>
   <!-- end background-->
