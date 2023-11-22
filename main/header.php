@@ -31,7 +31,7 @@
         <?php 
               session_start();   
               if (isset($_SESSION['is_login'])){
-                echo '<li class="nav-item custom-nav-item"><a href="student/studentProfile.php" class="nav-link">My Profile</a></li> <li class="nav-item custom-nav-item"><a href="logout.php" class="nav-link">Logout</a></li>';
+                echo '<li class="nav-item custom-nav-item"><a href="student/addstudent.php" class="nav-link">My Profile</a></li> <li class="nav-item custom-nav-item"><a href="logout.php" class="nav-link">Logout</a></li>';
               } else {
                 echo '<li class="nav-item custom-nav-item"><a href="#Login" class="nav-link" data-toggle="modal" data-target="#stuLoginModalCenter">Login</a></li> <li class="nav-item custom-nav-item"><a href="#Register" class="nav-link" data-toggle="modal" data-target="#stuRegModalCenter">Signup</a></li>';
               }

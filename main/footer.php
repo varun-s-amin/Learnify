@@ -141,7 +141,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://kit.fontawesome.com/c2139d71c2.js" crossorigin="anonymous"></script>
   <script src="js/ajaxrequest.js"></script>
-
+  <script src="js/adminajaxrequest.js"></script>
 </body>
 
 </html>
