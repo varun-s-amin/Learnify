@@ -1,6 +1,6 @@
 <?php
-if(!isset($_SESSION)){ 
-    session_start(); 
+if (!isset($_SESSION)) {
+    session_start();
 }
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
@@ -22,7 +22,7 @@ if (isset($_POST['checkname']) && isset($_POST['studentName'])) {
 
 // Check if email already exists
 if (isset($_POST['checkemail']) && isset($_POST['studentEmail'])) {
-    $student_Email = $_POST['studentEmail']; // Fixed variable name
+    $student_Email = $_POST['studentEmail'];
     $stmt = $conn->prepare("SELECT stu_email FROM student WHERE stu_email = ?");
     $stmt->bind_param("s", $student_Email);
     $stmt->execute();
@@ -36,7 +36,7 @@ if (isset($_POST['checkemail']) && isset($_POST['studentEmail'])) {
 if (isset($_POST['student_Signup']) && isset($_POST['student_Name']) && isset($_POST['student_Email']) && isset($_POST['student_Pass'])) {
     $student_Name = $_POST['student_Name'];
     $student_Email = $_POST['student_Email'];
-    $student_Pass = $_POST['student_Pass'];
+    $student_Pass = password_hash($_POST['student_Pass'], PASSWORD_DEFAULT);
 
     // Use prepared statement to prevent SQL injection
     $stmt = $conn->prepare("INSERT INTO student(stu_name, stu_email, stu_pass) VALUES (?, ?, ?)");
@@ -51,23 +51,27 @@ if (isset($_POST['student_Signup']) && isset($_POST['student_Name']) && isset($_
     $stmt->close();
 }
 
-
 // Student Login Verification
-if(!isset($_SESSION['is_login'])){
-    if(isset($_POST['checkLogemail']) && isset($_POST['SI_Email']) && isset($_POST['SI_Password'])){
-      $stuLogEmail = $_POST['SI_Email'];
-      $stuLogPass = $_POST['SI_Password'];
-      $sql = "SELECT stu_email, stu_pass FROM student WHERE stu_email='".$SI_Email."' AND stu_pass='".$SI_Password."'";
-      $result = $conn->query($sql);
-      $row = $result->num_rows;
-      
-      if($row === 1){
-        $_SESSION['is_login'] = true;
-        $_SESSION['SI_Email'] = $SI_Email;
-        echo json_encode($row);
-      } else if($row === 0) {
-        echo json_encode($row);
-      }
+if (!isset($_SESSION['is_login'])) {
+    if (isset($_POST['checkLogemail']) && isset($_POST['SI_Email']) && isset($_POST['SI_Password'])) {
+        $stuLogEmail = $_POST['SI_Email'];
+        $stuLogPass = $_POST['SI_Password'];
+        $sql = "SELECT stu_email, stu_pass FROM student WHERE stu_email=?"; // Changed the query
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $stuLogEmail);
+        $stmt->execute();
+        $stmt->bind_result($dbEmail, $dbPass);
+        $stmt->fetch();
+
+        if (password_verify($stuLogPass, $dbPass)) {
+            $_SESSION['is_login'] = true;
+            $_SESSION['SI_Email'] = $stuLogEmail;
+            echo json_encode(1);
+        } else {
+            echo json_encode(0);
+        }
+
+        $stmt->close();
     }
 }
 ?>
